@@ -1,0 +1,9 @@
+CRATE TABLE postac (id_postaci INTEGER PRIMARY KEY NOT NULL, nazwa VARCHAR(40), rodzaj ENUM( 'ptak', 'kobieta ', 'wiking ) ,data_ur DATE, wiek TINYINT);
+
+INSERT INTO postac VALUES (1,"bjorn","Wiking",'2022-10-27',25);
+INSERT INTO postac VALUES (2,"drozda","ptak",'2022-10-27',1);
+INSERT INTO postac VALUES (3,"tesciowa","kobieta",'1960-10-27',25);
+
+UPDATE postac SET wiek="88" WHERE id_postaci="3";
+
+
