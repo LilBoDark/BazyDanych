@@ -1,0 +1,49 @@
+zad1
+
+CRATE TABLE postac (id_postaci INTEGER PRIMARY KEY NOT NULL, nazwa VARCHAR(40), rodzaj ENUM( 'ptak', 'kobieta ', 'wiking ) ,data_ur DATE, wiek unsigned);
+
+INSERT INTO postac VALUES (1,"bjorn","Wiking",'2022-10-27',3000);
+INSERT INTO postac VALUES (2,"drozda","ptak",'2022-10-27',3);
+INSERT INTO postac VALUES (3,"tesciowa","kobieta",'1960-10-27',87);
+
+UPDATE postac SET wiek="88" WHERE id_postaci="3";
+
+
+zad2
+
+CREATE table walizka (id_walizki INTEGER PRIMARY KEY not null auto_increment, pojemnosc integer unsigned,
+ kolor ENUM("rozowy","czerwony","teczowy","zolty"),
+id_wlasciciela INTEGER, foreign key(id_wlasciciela) references postac(id_postaci) on delete cascade;
+alter table walizka alter kolor set default "rozowy";
+
+zad3
+
+create table izba(adres_budynku integer, nazwa_izby, varchar(40), metaz intiger unsigned, wlasciciel integer, foreign key(wlasciciel)
+references postac(id) on delete not null, primary key (adres_budynku,nazwa_izby));
+
+alter table izba add kolor_izby varchar(40) deafult "czarny";
+
+zad4 
+create table przetwory(id_prztwory intiger primaty key not null, rok_produkcji year deafult(1654),
+id_wykonawcy foreign key(id_wykonawcy) references postac(id_postaci),zawartosc varchar, dodatek varchar deafult"papryka chilli"
+id_konsumenta foreign key(id_konsumenta) references postac(id_postaci);
+ 
+INSTERT INTO przetwory VALUES (1,1654,,bigos,chilli,3,);
+
+zad5
+
+INSERT INTO postac VALUES (4,"udyr","Wiking",'2022-10-27',3000);
+INSERT INTO postac VALUES (5,"pablo","Wiking",'2022-10-27',27);
+INSERT INTO postac VALUES (6,"wolter","Wiking",'1960-10-27',900);
+INSERT INTO postac VALUES (7,"jan","Wiking",'2022-10-27',3000);
+INSERT INTO postac VALUES (8,"bogur","Wiking",'2022-10-27',200);
+
+CREATE table statek(nazwa_statku INTEGER PRIMARY KEY not null auto_increment,rodzaj_statku enum("statek", "duzy_statek","maly_statek")
+data_wodowania date max_ladownosc integer unsigned;
+
+INSERT INTO statek VALUES (1,"huan","duzy_statek",'2022-10-27',3000);
+INSERT INTO statek VALUES (2,"pablo2","duzy_statek",'2022-10-27',3000);
+
+
+
+
